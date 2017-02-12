@@ -1,1 +1,1 @@
-# 99-Scala-Problems
+# 99 Scala Problems
