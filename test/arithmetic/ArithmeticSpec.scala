@@ -41,4 +41,9 @@ class ArithmeticSpec extends FlatSpec with Matchers {
         12.primeFactorsMultiplicity should be(List((2, 2), (3, 1)))
         315.primeFactorsMultiplicity should be(List((3, 2), (5, 1), (7, 1)))
     }
+    
+    it should "calculate Euler's totient using the prime factors" in {
+        9.totient(9.primeFactorsMultiplicity) should be(6)
+        10.totient(10.primeFactorsMultiplicity) should be(4)
+    }
 }

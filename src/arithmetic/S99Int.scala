@@ -48,6 +48,12 @@ class S99Int(val value: Int) {
             _.swap
         }
     }
+    
+    
+    // Problem 37
+    def totient(primeFactors: List[(Int, Int)]): Int = {
+        primeFactors.foldLeft(1)((a, b) => a * (b._1 - 1) * Math.pow(b._1, b._2 - 1).toInt)
+    }
 }
 
 object S99Int {
