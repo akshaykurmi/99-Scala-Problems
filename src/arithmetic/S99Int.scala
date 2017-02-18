@@ -36,9 +36,7 @@ class S99Int(val value: Int) {
             case (_, Nil) => Nil
         }
         
-        val primes = List.range(2, Math.sqrt(value).toInt + 1) filter {
-            _ isPrime
-        }
+        val primes = primesInRange(2 to Math.sqrt(value).toInt + 1)
         accumulateFactors(value, primes)
     }
     
@@ -77,5 +75,13 @@ object S99Int {
     def gcd(first: Int, second: Int): Int = (first, second) match {
         case (a, b) if b == 0 => a
         case (a, b) => gcd(b, a % b)
+    }
+    
+    
+    // Problem 39
+    def primesInRange(range: Range): List[Int] = {
+        range.toList filter {
+            _.isPrime
+        }
     }
 }

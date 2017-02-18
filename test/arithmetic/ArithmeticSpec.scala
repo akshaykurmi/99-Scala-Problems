@@ -50,4 +50,9 @@ class ArithmeticSpec extends FlatSpec with Matchers {
     it should "compare the two methods to calculate Euler's totient" in {
         10090.compareTotientMethods()
     }
+    
+    it should "list prime number in the given range" in {
+        primesInRange(7 to 19) should be (List(7, 11, 13, 17, 19))
+        primesInRange(1 to 20) should be (List(2, 3, 5, 7, 11, 13, 17, 19))
+    }
 }
