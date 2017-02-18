@@ -61,4 +61,25 @@ class ArithmeticSpec extends FlatSpec with Matchers {
         20.goldbach should be(List((3, 17), (7, 13)))
         42.goldbach should be(List((5, 37), (11, 31), (13, 29), (19, 23)))
     }
+    
+    it should "list goldbach pairs with specified lower bound for even numbers in the given range" in {
+        goldbachList(9 to 20, 0) should be(Map(
+            10 -> List((3, 7), (5, 5)),
+            14 -> List((3, 11), (7, 7)),
+            20 -> List((3, 17), (7, 13)),
+            12 -> List((5, 7)),
+            18 -> List((5, 13), (7, 11)),
+            16 -> List((3, 13), (5, 11))
+        ))
+        goldbachList(1 to 50, 15) should be(Map(
+            42 -> List((19, 23)),
+            46 -> List((17, 29), (23, 23)),
+            38 -> List((19, 19)),
+            34 -> List((17, 17)),
+            48 -> List((17, 31), (19, 29)),
+            50 -> List((19, 31)),
+            40 -> List((17, 23)),
+            36 -> List((17, 19))
+        ))
+    }
 }

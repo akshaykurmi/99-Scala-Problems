@@ -92,4 +92,14 @@ object S99Int {
             _.isPrime
         }
     }
+    
+    
+    // Problem 41
+    def goldbachList(range: Range, limit: Int): Map[Int, List[(Int, Int)]] = {
+        range.filter(number => number % 2 == 0)
+            .map(number => number.goldbach.filter(pair => pair._1 > limit && pair._2 > limit))
+            .filter(list => list != Nil)
+            .map(list => (list.head._1 + list.head._2, list))
+            .toMap
+    }
 }
