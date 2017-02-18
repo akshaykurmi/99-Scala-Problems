@@ -4,6 +4,7 @@ class S99Int(val value: Int) {
     
     import S99Int._
     import lists.ListOperations.encode
+    import System.{currentTimeMillis => time}
     
     
     // Problem 31
@@ -53,6 +54,17 @@ class S99Int(val value: Int) {
     // Problem 37
     def totient(primeFactors: List[(Int, Int)]): Int = {
         primeFactors.foldLeft(1)((a, b) => a * (b._1 - 1) * Math.pow(b._1, b._2 - 1).toInt)
+    }
+    
+    
+    // Problem 38
+    def compareTotientMethods(): Unit = {
+        val factors = value.primeFactorsMultiplicity
+        val start1 = time()
+        println("Comparing the two methods to calculate Euler's totient")
+        println("Counting co-primes : " + value.totient + "" + (time() - start1) + " milliseconds")
+        val start2 = time()
+        println("Using prime factors : " + value.totient(factors) + "" + (time() - start2) + " milliseconds")
     }
 }
 

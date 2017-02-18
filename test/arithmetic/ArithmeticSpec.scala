@@ -46,4 +46,8 @@ class ArithmeticSpec extends FlatSpec with Matchers {
         9.totient(9.primeFactorsMultiplicity) should be(6)
         10.totient(10.primeFactorsMultiplicity) should be(4)
     }
+    
+    it should "compare the two methods to calculate Euler's totient" in {
+        10090.compareTotientMethods()
+    }
 }
