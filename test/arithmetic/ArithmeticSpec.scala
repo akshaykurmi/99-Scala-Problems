@@ -11,4 +11,10 @@ class ArithmeticSpec extends FlatSpec with Matchers{
         20.isPrime should be (false)
         787.isPrime should be (true)
     }
+    
+    it should "find the gcd of two numbers" in {
+        gcd(6, 0) should be (6)
+        gcd(4, 6) should be (2)
+        gcd(36, 63) should be (9)
+    }
 }
