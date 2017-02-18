@@ -1,21 +1,27 @@
 package arithmetic
 
-class S99Int(val start: Int) {
+class S99Int(val value: Int) {
     
     import S99Int._
     
     
     // Problem 31
     def isPrime: Boolean = {
-        if (start <= 1) false
-        else if (start == 2) true
-        else (2 to Math.sqrt(start).toInt).forall((number) => start % number != 0)
+        if (value <= 1) false
+        else if (value == 2) true
+        else (2 to Math.sqrt(value).toInt).forall((number) => value % number != 0)
     }
     
     
     // Problem 33
     def isCoprimeTo(other: Int) : Boolean = {
-        gcd(start, other) == 1
+        gcd(value, other) == 1
+    }
+    
+    
+    // Problem 34
+    def totient: Int = {
+        (1 to value).count(number => value isCoprimeTo number)
     }
 }
 

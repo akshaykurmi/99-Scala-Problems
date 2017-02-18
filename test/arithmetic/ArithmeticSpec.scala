@@ -23,4 +23,9 @@ class ArithmeticSpec extends FlatSpec with Matchers{
         9.isCoprimeTo(10) should be (true)
         35.isCoprimeTo(64) should be (true)
     }
+    
+    it should "calculate the Euler's totient of the number" in {
+        9.totient should be (6)
+        10.totient should be (4)
+    }
 }
