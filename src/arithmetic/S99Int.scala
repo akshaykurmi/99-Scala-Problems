@@ -3,6 +3,7 @@ package arithmetic
 class S99Int(val value: Int) {
     
     import S99Int._
+    import lists.ListOperations.encode
     
     
     // Problem 31
@@ -29,12 +30,23 @@ class S99Int(val value: Int) {
     def primeFactors: List[Int] = {
         def accumulateFactors(num: Int, primes: List[Int]): List[Int] = (num, primes) match {
             case (n, _) if n isPrime => List(n)
-            case (n, head :: _) if n % head == 0 =>  head :: accumulateFactors(n / head, primes)
+            case (n, head :: _) if n % head == 0 => head :: accumulateFactors(n / head, primes)
             case (n, _ :: tail) => accumulateFactors(n, tail)
             case (_, Nil) => Nil
         }
-        val primes = List.range(2, Math.sqrt(value).toInt + 1) filter {_ isPrime}
+        
+        val primes = List.range(2, Math.sqrt(value).toInt + 1) filter {
+            _ isPrime
+        }
         accumulateFactors(value, primes)
+    }
+    
+    
+    // Problem 36
+    def primeFactorsMultiplicity: List[(Int, Int)] = {
+        encode(value.primeFactors) map {
+            _.swap
+        }
     }
 }
 
