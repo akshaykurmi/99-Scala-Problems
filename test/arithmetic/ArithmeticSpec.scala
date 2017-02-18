@@ -52,7 +52,13 @@ class ArithmeticSpec extends FlatSpec with Matchers {
     }
     
     it should "list prime number in the given range" in {
-        primesInRange(7 to 19) should be (List(7, 11, 13, 17, 19))
-        primesInRange(1 to 20) should be (List(2, 3, 5, 7, 11, 13, 17, 19))
+        primesInRange(7 to 19) should be(List(7, 11, 13, 17, 19))
+        primesInRange(1 to 20) should be(List(2, 3, 5, 7, 11, 13, 17, 19))
+    }
+    
+    it should "find the list of pairs of primes that sum up to the given integer" in {
+        14.goldbach should be(List((3, 11), (7, 7)))
+        20.goldbach should be(List((3, 17), (7, 13)))
+        42.goldbach should be(List((5, 37), (11, 31), (13, 29), (19, 23)))
     }
 }

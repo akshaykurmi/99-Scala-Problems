@@ -64,6 +64,14 @@ class S99Int(val value: Int) {
         val start2 = time()
         println("Using prime factors : " + value.totient(factors) + "" + (time() - start2) + " milliseconds")
     }
+    
+    
+    // Problem 40
+    def goldbach: List[(Int, Int)] = {
+        primesInRange(1 to value)
+            .filter(number => (value - number).isPrime && number <= value - number)
+            .map(number => (number, value - number))
+    }
 }
 
 object S99Int {
