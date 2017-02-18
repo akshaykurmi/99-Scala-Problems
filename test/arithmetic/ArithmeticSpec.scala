@@ -28,4 +28,11 @@ class ArithmeticSpec extends FlatSpec with Matchers{
         9.totient should be (6)
         10.totient should be (4)
     }
+    
+    it should "list the prime factors of a given positive integer" in {
+        1.primeFactors should be (List())
+        12.primeFactors should be (List(2, 2, 3))
+        13.primeFactors should be (List(13))
+        315.primeFactors should be (List(3, 3, 5, 7))
+    }
 }

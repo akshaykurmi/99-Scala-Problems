@@ -14,7 +14,7 @@ class S99Int(val value: Int) {
     
     
     // Problem 33
-    def isCoprimeTo(other: Int) : Boolean = {
+    def isCoprimeTo(other: Int): Boolean = {
         gcd(value, other) == 1
     }
     
@@ -22,6 +22,19 @@ class S99Int(val value: Int) {
     // Problem 34
     def totient: Int = {
         (1 to value).count(number => value isCoprimeTo number)
+    }
+    
+    
+    // Problem 35
+    def primeFactors: List[Int] = {
+        def accumulateFactors(num: Int, primes: List[Int]): List[Int] = (num, primes) match {
+            case (n, _) if n isPrime => List(n)
+            case (n, head :: _) if n % head == 0 =>  head :: accumulateFactors(n / head, primes)
+            case (n, _ :: tail) => accumulateFactors(n, tail)
+            case (_, Nil) => Nil
+        }
+        val primes = List.range(2, Math.sqrt(value).toInt + 1) filter {_ isPrime}
+        accumulateFactors(value, primes)
     }
 }
 
