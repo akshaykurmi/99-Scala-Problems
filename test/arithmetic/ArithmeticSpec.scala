@@ -17,4 +17,10 @@ class ArithmeticSpec extends FlatSpec with Matchers{
         gcd(4, 6) should be (2)
         gcd(36, 63) should be (9)
     }
+    
+    it should "check if two positive integers are co-prime" in {
+        6.isCoprimeTo(15) should be (false)
+        9.isCoprimeTo(10) should be (true)
+        35.isCoprimeTo(64) should be (true)
+    }
 }

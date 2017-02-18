@@ -2,11 +2,20 @@ package arithmetic
 
 class S99Int(val start: Int) {
     
+    import S99Int._
+    
+    
     // Problem 31
     def isPrime: Boolean = {
         if (start <= 1) false
         else if (start == 2) true
         else (2 to Math.sqrt(start).toInt).forall((number) => start % number != 0)
+    }
+    
+    
+    // Problem 33
+    def isCoprimeTo(other: Int) : Boolean = {
+        gcd(start, other) == 1
     }
 }
 
