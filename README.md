@@ -1,28 +1,23 @@
 # 99 Scala Problems
 
-### Working with Lists
+## Working with Lists
 
-<br>
-
-__1) Find the last element of a list.__
+###1) Find the last element of a list.
 
 ~~~~
 scala> last(List(1, 1, 2, 3, 5, 8))
 res0: Int = 8
 ~~~~
 
-<br>
-
-__2) Find the last but one element of a list.__
+###2) Find the last but one element of a list.
 
 ~~~~
 scala> penultimate(List(1, 1, 2, 3, 5, 8))
 res0: Int = 5
 ~~~~
 
-<br>
 
-__3) Find the Nth element of a list.__
+###3) Find the Nth element of a list.
 
 By convention, the first element in the list is element 0.
 ~~~~
@@ -30,45 +25,40 @@ scala> nth(2, List(1, 1, 2, 3, 5, 8))
 res0: Int = 2
 ~~~~
 
-<br>
 
-__4) Find the number of elements of a list.__
+###4) Find the number of elements of a list.
 
 ~~~~
 scala> length(List(1, 1, 2, 3, 5, 8))
 res0: Int = 6
 ~~~~
 
-<br>
 
-__5) Reverse a list.__
+###5) Reverse a list.
 
 ~~~~
 scala> reverse(List(1, 1, 2, 3, 5, 8))
 res0: List[Int] = List(8, 5, 3, 2, 1, 1)
 ~~~~
 
-<br>
 
-__6) Find out whether a list is a palindrome.__
+###6) Find out whether a list is a palindrome.
 
 ~~~~
 scala> isPalindrome(List(1, 2, 3, 2, 1))
 res0: Boolean = true
 ~~~~
 
-<br>
 
-__7) Flatten a nested list structure.__
+###7) Flatten a nested list structure.
 
 ~~~~
 scala> flatten(List(List(1, 1), 2, List(3, List(5, 8))))
 res0: List[Any] = List(1, 1, 2, 3, 5, 8)
 ~~~~
 
-<br>
 
-__8) Eliminate consecutive duplicates of list elements.__
+###8) Eliminate consecutive duplicates of list elements.
 
 If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
 ~~~~
@@ -76,9 +66,8 @@ scala> compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 res0: List[Symbol] = List('a, 'b, 'c, 'a, 'd, 'e)
 ~~~~
 
-<br>
 
-__9) Pack consecutive duplicates of list elements into sublists.__
+###9) Pack consecutive duplicates of list elements into sublists.
 
 If a list contains repeated elements they should be placed in separate sublists.
 ~~~~
@@ -86,9 +75,8 @@ scala> pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
 ~~~~
 
-<br>
 
-__10) Run-length encoding of a list.__
+###10) Run-length encoding of a list.
 
 Use the result of problem 9 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as tuples (N, E) where N is the number of duplicates of the element E.
 ~~~~
@@ -96,9 +84,8 @@ scala> encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
 ~~~~
 
-<br>
 
-__11) Modified run-length encoding.__
+###11) Modified run-length encoding.
 
 Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N, E) terms.
 ~~~~
@@ -106,9 +93,8 @@ scala> encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, '
 res0: List[Any] = List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
 ~~~~
 
-<br>
 
-__12) Decode a run-length encoded list.__
+###12) Decode a run-length encoded list.
 
 Given a run-length code list generated as specified in problem 10, construct its uncompressed version.
 ~~~~
@@ -116,9 +102,8 @@ scala> decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
 res0: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 ~~~~
 
-<br>
 
-__13)  Run-length encoding of a list (direct solution).__
+###13)  Run-length encoding of a list (direct solution).
 
 Implement the so-called run-length encoding data compression method directly. I.e. don't use other methods you've written (like problem 9's pack); do all the work directly.
 
@@ -127,36 +112,32 @@ scala> encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
 ~~~~
 
-<br>
 
-__14) Duplicate the elements of a list.__
+###14) Duplicate the elements of a list.
 
 ~~~~
 scala> duplicate(List('a, 'b, 'c, 'c, 'd))
 res0: List[Symbol] = List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
 ~~~~
 
-<br>
 
-__15) Duplicate the elements of a list a given number of times.__
+###15) Duplicate the elements of a list a given number of times.
 
 ~~~~
 scala> duplicateN(3, List('a, 'b, 'c, 'c, 'd))
 res0: List[Symbol] = List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)
 ~~~~
 
-<br>
 
-__16) Drop every Nth element from a list.__
+###16) Drop every Nth element from a list.
 
 ~~~~
 scala> drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
 res0: List[Symbol] = List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
 ~~~~
 
-<br>
 
-__17) Split a list into two parts.__
+###17) Split a list into two parts.
 
 The length of the first part is given. Use a Tuple for your result.
 ~~~~
@@ -164,9 +145,8 @@ scala> split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
 res0: (List[Symbol], List[Symbol]) = (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
 ~~~~
 
-<br>
 
-__18) Extract a slice from a list.__
+###18) Extract a slice from a list.
 
 Given two indices, I and K, the slice is the list containing the elements from and including the Ith element up to but not including the Kth element of the original list. Start counting the elements with 0.
 ~~~~
@@ -174,9 +154,8 @@ scala> slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
 res0: List[Symbol] = List('d, 'e, 'f, 'g)
 ~~~~
 
-<br>
 
-__19) Rotate a list N places to the left.__
+###19) Rotate a list N places to the left.
 
 ~~~~
 scala> rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
@@ -186,9 +165,8 @@ scala> rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
 res1: List[Symbol] = List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
 ~~~~
 
-<br>
 
-__20) Remove the Kth element from a list.__
+###20) Remove the Kth element from a list.
 
 Return the list and the removed element in a Tuple. Elements are numbered from 0.
 ~~~~
@@ -196,27 +174,24 @@ scala> removeAt(1, List('a, 'b, 'c, 'd))
 res0: (List[Symbol], Symbol) = (List('a, 'c, 'd),'b)
 ~~~~
 
-<br>
 
-__21) Insert an element at a given position into a list.__
+###21) Insert an element at a given position into a list.
 
 ~~~~
 scala> insertAt('new, 1, List('a, 'b, 'c, 'd))
 res0: List[Symbol] = List('a, 'new, 'b, 'c, 'd)
 ~~~~
 
-<br>
 
-__22) Create a list containing all integers within a given range.__
+###22) Create a list containing all integers within a given range.
 
 ~~~~
 scala> range(4, 9)
 res0: List[Int] = List(4, 5, 6, 7, 8, 9)
 ~~~~
 
-<br>
 
-__23) Extract a given number of randomly selected elements from a list.__
+###23) Extract a given number of randomly selected elements from a list.
 
 Hint: Use the solution to problem 20
 ~~~~
@@ -224,18 +199,16 @@ scala> randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h))
 res0: List[Symbol] = List('e, 'd, 'a)
 ~~~~
 
-<br>
 
-__24) Lotto: Draw N different random numbers from the set 1..M.__
+###24) Lotto: Draw N different random numbers from the set 1..M.
 
 ~~~~
 scala> lotto(6, 49)
 res0: List[Int] = List(23, 1, 17, 33, 21, 37)
 ~~~~
 
-<br>
 
-__25) Generate a random permutation of the elements of a list.__
+###25) Generate a random permutation of the elements of a list.
 
 Hint: Use the solution of problem 23.
 ~~~~
@@ -243,9 +216,8 @@ scala> randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
 res0: List[Symbol] = List('b, 'a, 'd, 'c, 'e, 'f)
 ~~~~
 
-<br>
 
-__26) Generate the combinations of K distinct objects chosen from the N elements of a list.__
+###26) Generate the combinations of K distinct objects chosen from the N elements of a list.
 
 In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficient). For pure mathematicians, this result may be great. But we want to really generate all the possibilities.
 ~~~~
@@ -253,9 +225,8 @@ scala> combinations(3, List('a, 'b, 'c, 'd, 'e, 'f))
 res0: List[List[Symbol]] = List(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e), ...
 ~~~~
 
-<br>
 
-__27) Group the elements of a set into disjoint subsets.__
+###27) Group the elements of a set into disjoint subsets.
 
 a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities.
 ~~~~
@@ -271,9 +242,8 @@ Note that we do not want permutations of the group members; i.e. ((Aldo, Beat), 
 
 You may find more about this combinatorial problem in a good book on discrete mathematics under the term "multinomial coefficients".
 
-<br>
 
-__28) Sorting a list of lists according to length of sublists.__
+###28) Sorting a list of lists according to length of sublists.
 
 a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of the list according to their length. E.g. short lists first, longer lists later, or vice versa.
 ~~~~
@@ -287,4 +257,4 @@ res1: List[List[Symbol]] = List(List('i, 'j, 'k, 'l), List('o), List('a, 'b, 'c)
 ~~~~
 Note that in the above example, the first two lists in the result have length 4 and 1 and both lengths appear just once. The third and fourth lists have length 3 and there are two list of this length. Finally, the last three lists have length 2. This is the most frequent length.
 
-<br>
+
